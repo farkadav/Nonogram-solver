@@ -75,23 +75,7 @@ public class CSPSolver {
             orderedVars.add(colCombinations.get(i));
         }
     }
-    public static int n = 0;
-    public CSPVariable comb(CSPVariable v,char[] seq, char lastColor, Rules rules){
-        
-        if (n<seq.length){
-            Rule rule = rules.getRules().get(n);
-            char color = rule.color;
-            int size = rule.size;
-        }
-        
-        
-        for ( Rule rule: rules.getRules()){
-            char color = rule.color;
-            int size = rule.size;
-            
-        }
-        return v;
-    }
+  
     
     public CSPVariable makeCombs(CSPVariable var, char[] oldSequence, char lastColor,  Rules rules,int offSet, int index){
         if(offSet<oldSequence.length){
