@@ -51,7 +51,8 @@ public class CSPSolver {
         this.orderedVars = new PriorityQueue<>(comparator);
      
     }
-
+    
+    //This method solves the nonogram
     public boolean solve(){
         for (int i =0 ; i < rowDim ; i++){             
             rowCombinations.add(makeCombs(new CSPVariable(i,true),new char[colDim],colDim,'_',rowRules.get(i),0,0));
@@ -67,6 +68,7 @@ public class CSPSolver {
         return !solutions.isEmpty();
     }
     
+    // Order variables using priority queue
     public void orderVars(){         
         rowCombinations.forEach((r) -> {
             orderedVars.add(r);
@@ -75,7 +77,8 @@ public class CSPSolver {
             orderedVars.add(c);
         });
     }
- 
+    
+    //Make all valid combinations of blocks for row/col 
     public CSPVariable makeCombs(CSPVariable var, char[] oldSequence,int lineLength, char lastColor,  Rules rules,int offSet, int index){
         if(offSet<lineLength){
             if(index < rules.getRules().size()){
@@ -107,6 +110,7 @@ public class CSPSolver {
         return var;
     }
     
+    // if solution exists record it
     public void makeSolution(){
         String[] solString = new String[rowDim];
         for(Line line : rowSolution){
@@ -123,6 +127,7 @@ public class CSPSolver {
         
     } 
     
+    // backtraing algortihm which is trying to solve the nonogram
     @SuppressWarnings("UnnecessaryReturnStatement")
     public void backtracking(){        
         if(orderedVars.isEmpty()) {
@@ -148,7 +153,7 @@ public class CSPSolver {
         orderedVars.add(cspVar);
     }
 
-    
+    //check for consistency of solution so far
     public boolean consistent(char[] val, CSPVariable var){
         if(var.Row){
             for(int i =0;i< tempY;i++){
@@ -184,7 +189,7 @@ public class CSPSolver {
         }
         return consistencyList;
     }
-    
+    //AC-3 algortihm 
     public void arcConsistency(){
         ArrayList<Arc> consistencyList = makeArcs();
         
