@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nonogram;
+package student;
 
-import com.sun.xml.internal.ws.util.StringUtils;
+
 import java.util.ArrayList;
 
 /**

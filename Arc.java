@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nonogram;
+package student;
 
 import java.util.ArrayList;
 
@@ -35,6 +35,7 @@ public class Arc {
                 char[] var1 = cspVar1.storage.get(i);
                 for(int j=0; j<cspVar2.storage.size();j++){
                     char[] var2 = cspVar2.storage.get(j);
+           
                     char help1 = var1[y];
                     char help2 = var2[x];
                     if( help1 == help2){

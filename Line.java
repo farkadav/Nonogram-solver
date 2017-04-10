@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nonogram;
+package student;
 
 /**
  *
@@ -11,14 +11,19 @@ package nonogram;
  */
 public class Line {
     
-    public char[] value;
+    public char[] sequence;
     public int position;
     public boolean Row;
+    public CSPVariable parent;
     
     public Line(char[] val,int index, boolean Row) {
         this.position = index;
         this.Row = Row;
-        this.value = val;
+        this.sequence = val;
+        
     }
     
+    public CSPVariable getParent(){
+        return this.parent;
+    }
 }
